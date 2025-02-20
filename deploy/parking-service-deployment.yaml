@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: parking-service
+spec:
+  replicas: 1  
+  selector:
+    matchLabels:
+      app: parking-service  
+  template:
+    metadata:
+      labels:
+        app: parking-service
+    spec:
+      containers:
+      - name: parking-service
+        image: smartparking-parking-service:latest  
+        ports:
+        - containerPort: 8082
